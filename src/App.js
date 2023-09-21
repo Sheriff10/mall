@@ -18,6 +18,7 @@ import BindCard from "./pages/bind-card";
 import ChangePassword from "./pages/change-password";
 
 function App() {
+   window.api = "http://localhost:5000";
    return (
       <div className="App">
          <Routes>
