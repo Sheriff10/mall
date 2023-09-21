@@ -13,6 +13,9 @@ import Order from "./pages/order";
 import Invite from "./pages/invite";
 import RechargeRecord from "./pages/recharge-record";
 import WithdrawalRecord from "./pages/withdrawal-record";
+import AccountDetails from "./pages/account-details";
+import BindCard from "./pages/bind-card";
+import ChangePassword from "./pages/change-password";
 
 function App() {
    return (
@@ -30,6 +33,9 @@ function App() {
             <Route path="/invite" element={<Invite />} />
             <Route path="/recharge-record" element={<RechargeRecord />} />
             <Route path="/withdrawal-record" element={<WithdrawalRecord />} />
+            <Route path="/account-details" element={<AccountDetails />} />
+            <Route path="/bind-card" element={<BindCard />} />
+            <Route path="/change-password" element={<ChangePassword />} />
          </Routes>
       </div>
    );
