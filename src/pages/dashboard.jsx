@@ -64,7 +64,7 @@ export default function Dashboard() {
                      <small> Withdraw </small>
                   </div>
                   <div className="wrap text-center">
-                     <button onClick={() => navi("")}>
+                     <button onClick={() => navi("/invite")}>
                         <FaShare />
                      </button>{" "}
                      <br />
@@ -114,6 +114,9 @@ export default function Dashboard() {
 
                {/* Partner Section */}
                <div className="partners mb-5">
+                <div className="h">
+                    <span className="fw-bold">PARTNERS</span>
+                </div>
                   <div className="row">
                      {partnersImg.map((i) => (
                         <div

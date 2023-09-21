@@ -5,18 +5,18 @@ import { Link } from "react-router-dom";
 import Footer from "./footer";
 
 export default function My() {
-   const menuFunc = (title, icon) => {
-      return { title, icon };
+   const menuFunc = (title, icon, link) => {
+      return { title, icon, link };
    };
    const menuArr = [
-      menuFunc("Withdraw", <FaCreditCard />),
-      menuFunc("recharge record ", <BsPlusCircleFill />),
-      menuFunc("Withdraw record", <BsCashStack />),
-      menuFunc("Account details", <BsRecycle />),
-      menuFunc("bind bank card", <FaCreditCard />),
-      menuFunc("change password", <FaLock />),
-      menuFunc("modify withdrawal password", <FaLock />),
-      menuFunc("select language", <FaGlobe />),
+      menuFunc("Withdraw", <FaCreditCard />, "/withdrawal"),
+      menuFunc("recharge record ", <BsPlusCircleFill />, "/recharge-record"),
+      menuFunc("Withdraw record", <BsCashStack />, "/withdrawal-record"),
+      menuFunc("Account details", <BsRecycle />, "/account-details"),
+      menuFunc("bind bank card", <FaCreditCard />, "/bind-card"),
+      menuFunc("change password", <FaLock />, "/change-password"),
+      menuFunc("modify withdrawal password", <FaLock />, "/change-password"),
+      menuFunc("select language", <FaGlobe />, ""),
    ];
    return (
       <div className="my">
@@ -59,7 +59,8 @@ export default function My() {
                   <hr className="border m-0" />
                   <div className="row text-center">
                      <div className="col-6 p-1 border-right">
-                        <span className="span text-success">#500.00</span> <br />
+                        <span className="span text-success">#500.00</span>{" "}
+                        <br />
                         <small>availaible balance</small>
                      </div>
                      <div className="col-6 p-1">
@@ -71,18 +72,18 @@ export default function My() {
             </div>
          </div>
 
-         <div className="container shadow py-3 my-4 rounded">
+         <div className="container shadow py-3 my-4 rounded bg-white">
             {menuArr.map((i, index) => (
-               <div className="d-flex men py-3 justify-content-between align-items-center text-purple" key={index}>
-                  <div className="wrap d-flex align-items-center">
-                     {" "}
-                     <span className="menu">
-                        {i.icon}{" "}
-                     </span>{" "}
-                     <span className="ms-4 fs-6 fw-bold">{i.title}</span>{" "}
+               <Link to={i.link} key={index}>
+                  <div className="d-flex men py-3 justify-content-between align-items-center text-purple">
+                     <div className="wrap d-flex align-items-center">
+                        {" "}
+                        <span className="menu">{i.icon} </span>{" "}
+                        <span className="ms-4 fs-6 fw-bold">{i.title}</span>{" "}
+                     </div>
+                     <FaCaretRight className="fs-3" />
                   </div>
-                  <FaCaretRight className="fs-3" />
-               </div>
+               </Link>
             ))}
          </div>
          <Footer />

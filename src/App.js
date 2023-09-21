@@ -9,6 +9,10 @@ import Withdrawal from "./pages/withdrawal";
 import Support from "./pages/support";
 import Grab from "./pages/grab";
 import My from "./pages/my";
+import Order from "./pages/order";
+import Invite from "./pages/invite";
+import RechargeRecord from "./pages/recharge-record";
+import WithdrawalRecord from "./pages/withdrawal-record";
 
 function App() {
    return (
@@ -22,6 +26,10 @@ function App() {
             <Route path="/support" element={<Support />} />
             <Route path="/grab" element={<Grab />} />
             <Route path="/my" element={<My />} />
+            <Route path="/order" element={<Order />} />
+            <Route path="/invite" element={<Invite />} />
+            <Route path="/recharge-record" element={<RechargeRecord />} />
+            <Route path="/withdrawal-record" element={<WithdrawalRecord />} />
          </Routes>
       </div>
    );
