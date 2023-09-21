@@ -1,0 +1,73 @@
+.btn-purple {
+   background: #6d00be;
+}
+.btn-purple:hover {
+   background: #59039b;
+}
+.register input {
+   display: block;
+   width: 100%;
+}
+a {
+   text-decoration: none;
+}
+.text-purple {
+   color: #6d00be;
+}
+.round-btn button {
+   font-size: 22px;
+   border-radius: 50%;
+   padding: 15px 20px;
+   color: #6d00be;
+   background: linear-gradient(135deg, #a600ff3a 0%, #00179a36 100%);
+   border: none;
+}
+.rev .name {
+   border-right: 1px solid #00000012;
+}
+.kk {
+   margin-top: -50px;
+   z-index: 10
+}
+.hh{
+   max-height: 300px;
+   z-index: -1;
+}
+.recharge .header, .rbk, .amt-box, .grab-body .card, .my .header {
+   background: linear-gradient(135deg, #a700ff 0%, #00189a 100%);
+}
+.price-box .boxer:hover {
+   background: #a600ff32;
+}
+.border-right{
+   border-right: 1px solid #00000032;
+}
+.menu {
+   font-size: 20px;
+   border-radius: 10px;
+   padding: 12px 15px;
+   color: #6d00be;
+   background: linear-gradient(135deg, #a600ff3a 0%, #00179a36 100%);
+   border: none;
+}
+.my .men {
+   border-bottom: 1px solid #00000032;
+
+}
+.footer {
+   z-index: 100;
+   width: 100%;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: #fff;
+   padding: 10px 1px;
+}
+.footer a{
+   color: #bbbbbb;
+   font-size: 24px;
+}
+.footer a.active{
+   border: none;
+   color: #6d00be;
+}
