@@ -72,7 +72,7 @@ export default function My() {
             </div>
          </div>
 
-         <div className="container shadow py-3 my-4 rounded bg-white">
+         <div className="container shadow py-3 my-5 rounded bg-white">
             {menuArr.map((i, index) => (
                <Link to={i.link} key={index}>
                   <div className="d-flex men py-3 justify-content-between align-items-center text-purple">
