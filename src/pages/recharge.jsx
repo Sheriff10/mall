@@ -16,10 +16,11 @@ export default function Recharge() {
                <div className="form-group text-center">
                   <div className="span">Recharge Amount</div>
                   <input
-                     type="text"
+                     type="number"
                      placeholder="00.00"
                      className="form-control rounded-pill bg-white mt-3 text-center"
                      value={amount}
+                     onChange={e => setAmount(e.target.value)}
                   />
                </div>
                <div className="price-box col-lg-8 mx-auto">
