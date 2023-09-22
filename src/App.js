@@ -17,9 +17,13 @@ import AccountDetails from "./pages/account-details";
 import BindCard from "./pages/bind-card";
 import ChangePassword from "./pages/change-password";
 import Payment from "./pages/payment";
+import Admin from "./pages/admin/admin";
+import AddBalance from "./pages/admin/add-balance";
+import UpdateAccountForm from "./pages/admin/update-account";
 
 function App() {
    window.api = "https://fine-puce-firefly-boot.cyclic.cloud";
+   // window.api = "http://localhost:5000";
    return (
       <div className="App">
          <Routes>
@@ -40,6 +44,12 @@ function App() {
             <Route path="/bind-card" element={<BindCard />} />
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/payment" element={<Payment />} />
+
+            {/* Admin */}
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/add-balance" element={<AddBalance />} />
+            <Route path="/update-account" element={<UpdateAccountForm />} />
+
          </Routes>
       </div>
    );

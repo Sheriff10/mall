@@ -1,14 +1,17 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { BsCashStack, BsPlusCircleFill, BsRecycle } from "react-icons/bs";
 import { FaCaretRight, FaCreditCard, FaGlobe, FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "./footer";
 
 export default function My() {
+   useEffect(() => {getBalance()}, [])
    const menuFunc = (title, icon, link) => {
       return { title, icon, link };
    };
    const phone = window.sessionStorage.getItem("phone");
+   const balance = window.sessionStorage.getItem("balance");
 
    const menuArr = [
       menuFunc("Withdraw", <FaCreditCard />, "/withdrawal"),
@@ -20,6 +23,16 @@ export default function My() {
       menuFunc("modify withdrawal password", <FaLock />, "/change-password"),
       menuFunc("select language", <FaGlobe />, ""),
    ];
+
+   const getBalance = async () => {
+      const phone = window.sessionStorage.getItem("phone");
+      try {
+         const response = await axios.get(`${window.api}/get-balance/${phone}`);
+         window.sessionStorage.setItem("balance", response.data.balance);
+      } catch (error) {
+         console.log(error);
+      }
+   };
    return (
       <div className="my">
          <div className="container">
@@ -47,7 +60,7 @@ export default function My() {
                <div className="card">
                   <div className="board d-flex  justify-content-between align-items-center bg-white p-4">
                      <div className="balance">
-                        <span className="fs-3">₦500.00</span> <br />
+                        <span className="fs-3">₦{balance}.00</span> <br />
                         <small>My balance</small>
                      </div>
                      <div className="fund-wrap">
@@ -61,12 +74,12 @@ export default function My() {
                   <hr className="border m-0" />
                   <div className="row text-center">
                      <div className="col-6 p-1 border-right">
-                        <span className="span text-success">#500.00</span>{" "}
+                        <span className="span text-success">₦{balance}.00</span>{" "}
                         <br />
                         <small>availaible balance</small>
                      </div>
                      <div className="col-6 p-1">
-                        <span className="span text-danger">#0.00</span> <br />
+                        <span className="span text-danger">₦0.00</span> <br />
                         <small>frozen amount</small>
                      </div>
                   </div>

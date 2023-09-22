@@ -1,20 +1,35 @@
 import React, { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaCreditCard, FaDollarSign, FaShare } from "react-icons/fa";
-import rawData from '../random'
- 
+import rawData from "../random";
+
 import Footer from "./footer";
 import { MdOutlineSwipeLeft } from "react-icons/md";
+import axios from "axios";
 
 export default function Dashboard() {
+   useEffect(() => {
+      getBalance();
+   }, []);
    const partnersImg = [
       "/amazon.png",
       "/walmart.png",
       "/snapdeal.png",
       "/shopify.png",
    ];
-  
-  
+
+   const balance = window.sessionStorage.getItem("balance");
+
+   const getBalance = async () => {
+      const phone = window.sessionStorage.getItem("phone");
+      try {
+         const response = await axios.get(`${window.api}/get-balance/${phone}`);
+         window.sessionStorage.setItem("balance", response.data.balance);
+      } catch (error) {
+         console.log(error);
+      }
+   };
+
    const modalRef = useRef(null);
 
    useEffect(() => {
@@ -26,12 +41,15 @@ export default function Dashboard() {
    const navi = useNavigate();
    return (
       <div className="dashboard">
+         <head>
+            <title>Home</title>
+         </head>
          <img src="intro.jpeg" alt="mall" className="img-fluid w-100 hh" />
          <div className="container mt-3">
             <div className="hero-wrap">
                <div className="board d-flex  justify-content-between align-items-center bg-white shadow p-4">
                   <div className="balance">
-                     <span className="fs-3">₦500.00</span> <br />
+                     <span className="fs-3">₦{balance}.00</span> <br />
                      <small>My Balance</small>
                   </div>
                   <div className="fund-wrap">
@@ -43,7 +61,10 @@ export default function Dashboard() {
                   </div>
                </div>
                <div className="btn-wrap">
-                  <btn className="btn w-100 rounded-pill text-white p-2 fs-5 text-uppercase mt-4 btn-purple">
+                  <btn
+                     className="btn w-100 rounded-pill text-white p-2 fs-5 text-uppercase mt-4 btn-purple"
+                     onClick={() => navi("/grab")}
+                  >
                      <MdOutlineSwipeLeft /> Start Making Money
                   </btn>
                </div>
@@ -133,7 +154,7 @@ export default function Dashboard() {
                            {/* <h4 class="modal-title">Modal Header</h4> */}
                         </div>
                         <div class="modal-body">
-                           <p className="bg-danger">
+                           <p>
                               Join my team, 10 minutes a day, earn
                               100,000-2,000,000₦ a month, this is just the
                               beginning, every start is a seed of opportunity, a

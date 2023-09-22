@@ -41,7 +41,7 @@ export default function Register() {
                </small>
             </div>
 
-            <form onSubmit={handleSubmit}>
+            <form className="row justify-content-center" onSubmit={handleSubmit}>
                <div className="col-lg-4 mx-auto mt-4">
                   <div className="err-wrap">
                      <small className="fw-bold text-danger small text-lowercase">

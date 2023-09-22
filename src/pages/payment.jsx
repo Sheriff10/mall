@@ -6,13 +6,15 @@ import { useNavigate } from "react-router-dom";
 import Loader from "./loader";
 
 function Payment() {
-   const [bankName, setBankName] = useState("Kuda Name"); // Replace with actual bank name
-   const [bankAccount, setBankAccount] = useState("12345"); // Replace with actual bank account
-   const [accountName, setAccountName] = useState("Kudi Venturez"); // Replace with actual account name
    const [transactionId, setTransactionId] = useState("");
    const [amount, setAmount] = useState(0);
    const [sender_name, setSender_name] = useState("");
-   const [loading, setLoading] = useState(false)
+   const [loading, setLoading] = useState(false);
+   const [account, setAccount] = useState({
+      bank_name: "...",
+      bank_number: "...",
+      account_name: "...[",
+   });
 
    const generateTransactionId = () => {
       // Generate a random transaction ID (You can replace this with your own logic)
@@ -20,6 +22,7 @@ function Payment() {
       setTransactionId(randomId);
    };
    useEffect(() => {
+      getAcount();
       getAmount();
    }, []);
 
@@ -35,7 +38,7 @@ function Payment() {
 
    const submit = async () => {
       if (amount == "") return navi("/recharge");
-      setLoading(true)
+      setLoading(true);
 
       try {
          const phone = window.sessionStorage.getItem("phone");
@@ -45,9 +48,23 @@ function Payment() {
          console.log(response);
          alert("Transaction Proccessing");
          navi("/recharge-record");
-         setLoading(false)
+         setLoading(false);
       } catch (error) {
-        setLoading(false)
+         setLoading(false);
+         console.log(error);
+      }
+   };
+
+   const getAcount = async () => {
+      setLoading(true);
+
+      try {
+         const response = await axios.get(`${window.api}/get-account`);
+         console.log(response);
+         setLoading(false);
+         setAccount(response.data);
+      } catch (error) {
+         setLoading(false);
          console.log(error);
       }
    };
@@ -67,13 +84,13 @@ function Payment() {
             {/* Bank Name */}
             <Form.Group className="flex-grow-1 mr-2 mb-0">
                <Form.Label>Bank Name:</Form.Label>
-               <Form.Control type="text" value={bankName} readOnly />
+               <Form.Control type="text" value={account.bank_name} readOnly />
             </Form.Group>
             <Button
                variant="primary"
                className="mt-4"
                size="sm"
-               onClick={() => navigator.clipboard.writeText(bankName)}
+               onClick={() => navigator.clipboard.writeText(account.bank_name)}
             >
                Copy
             </Button>
@@ -83,13 +100,15 @@ function Payment() {
             {/* Bank Account */}
             <Form.Group className="flex-grow-1 mr-2 mb-0">
                <Form.Label>Bank Account:</Form.Label>
-               <Form.Control type="text" value={bankAccount} readOnly />
+               <Form.Control type="text" value={account.bank_number} readOnly />
             </Form.Group>
             <Button
                variant="primary"
                className="mt-4"
                size="sm"
-               onClick={() => navigator.clipboard.writeText(bankAccount)}
+               onClick={() =>
+                  navigator.clipboard.writeText(account.bank_number)
+               }
             >
                Copy
             </Button>
@@ -99,13 +118,19 @@ function Payment() {
             {/* Account Name */}
             <Form.Group className="flex-grow-1 mr-2 mb-0">
                <Form.Label>Account Name:</Form.Label>
-               <Form.Control type="text" value={accountName} readOnly />
+               <Form.Control
+                  type="text"
+                  value={account.account_name}
+                  readOnly
+               />
             </Form.Group>
             <Button
                variant="primary"
                className="mt-4"
                size="sm"
-               onClick={() => navigator.clipboard.writeText(accountName)}
+               onClick={() =>
+                  navigator.clipboard.writeText(account.account_name)
+               }
             >
                Copy
             </Button>

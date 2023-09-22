@@ -2,6 +2,22 @@ import React from "react";
 import { FaArrowLeft, FaPhone } from "react-icons/fa";
 
 export default function Withdrawal() {
+
+   const phone = window.sessionStorage.getItem("phone");
+   const balance = window.sessionStorage.getItem("balance");
+
+   function maskNumber(number) {
+      const numberStr = String(number);
+      if (numberStr.length >= 6) {
+         // Extract the first 3 characters
+         const firstPart = numberStr.slice(0, 3);
+         const lastPart = numberStr.slice(-3);
+         const maskedStr = `${firstPart}***${lastPart}`;
+
+         return maskedStr;
+      }
+      return numberStr;
+   }
    return (
       <div className="withdrawal recharge">
          <div className="header d-flex justify-content-between align-items-center p-3 text-light">
@@ -10,7 +26,7 @@ export default function Withdrawal() {
          <div className="container mt-4">
             <div className="amt-box rounded">
                <div className="amt text-center p-3 text-light">
-                  <span className="fs-1 fw-bold">₦500</span> <br />
+                  <span className="fs-1 fw-bold">₦{balance}</span> <br />
                   <span className=" text-mute">
                      amount that can be withdrawn
                   </span>
@@ -19,12 +35,14 @@ export default function Withdrawal() {
                <div className="card shadow">
                   <div className="card-body bg-none">
                      <div className="row">
-                        <dt className="col-5 text-secondary small">account name</dt>
+                        <dt className="col-5 text-secondary small">
+                           account name
+                        </dt>
                         <dd className="col-7 small">sheriff</dd>
                         <dt className="col-5 text-secondary small">
                            Mobile number
                         </dt>
-                        <dd className="col-7 small">812****688</dd>
+                        <dd className="col-7 small">{maskNumber(phone)}</dd>
                         <dt className="col-12 text-secondary small switch-type">
                            <div className="custom-control custom-radio">
                               <input

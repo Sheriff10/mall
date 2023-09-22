@@ -43,8 +43,8 @@ export default function Login() {
                </small>
             </div>
 
-            <form>
-               <div className="col-lg-4 mx-auto mt-4">
+            <form className="row justify-content-center">
+               <div className="col-lg-4  mx-auto mt-4">
                   <div className="form-group d-flex rounded-pill form-control p-0 mb-2">
                      <select className="form-select w-auto border-0 rounded-pill">
                         <option value="+234">+234</option>
@@ -67,11 +67,11 @@ export default function Login() {
                      required
                   />
                </div>
-               <div className="err-wrap">
+               <div className="err-wrap col-12">
                   <small className="fw-bold text-danger">{err}</small>
                </div>
 
-               <div className="btn-wrap">
+               <div className="btn-wrap col-12">
                   <button className="btn btn-purple w-100 rounded-pill text-white mt-4 p-3 mb-4">
                      Login
                   </button>

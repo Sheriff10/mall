@@ -6,13 +6,15 @@ import Footer from "./footer";
 import GrabModal from "./grabModal";
 
 export default function Grab() {
+   const balance = window.sessionStorage.getItem("balance");
+
    return (
       <div className="grab">
          <div className="container">
             {/* Board */}
             <div className="board d-flex  justify-content-between align-items-center p-1 mt-4">
                <div className="balance">
-                  <span className="fs-1">₦500.00</span> <br />
+                  <span className="fs-1">₦{balance}.00</span> <br />
                   <small>My Balance</small>
                </div>
                <div className="fund-wrap">
@@ -84,7 +86,7 @@ export default function Grab() {
                         <small>order quantity</small>
                      </div>
                      <div className="b-wrap">
-                        <span>₦500</span> <br />
+                        <span>₦{balance}</span> <br />
                         <small>available balance</small>
                      </div>
                   </div>

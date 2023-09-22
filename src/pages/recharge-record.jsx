@@ -15,23 +15,40 @@ export default function RechargeRecord() {
             phone,
          });
          setRecords(response.data);
-         console.log(response)
+         console.log(response);
       } catch (error) {
          console.log(error);
+      }
+   };
+
+   const pendColor = (stats) => {
+      switch (stats) {
+         case "confirm":
+            return (
+               <span className="badge bg-success ">confirmed recharge</span>
+            );
+         case "cancel":
+            return <span className="badge bg-danger "> cancelled recharge</span>;
+
+         default:
+            return (
+               <span className="badge bg-info "> pending approval</span>
+            );
+            break;
       }
    };
    return (
       <div className="rr">
          <Nodata title={"recharge"} />
 
-         {records.map((rec, index) => (
+         {records.reverse().map((rec, index) => (
             <div
                className="board d-flex justify-content-between align-items-center p-2 rounded bg-white border-bottom"
                key={index}
             >
                <div className="text-wrap">
                   <span>{rec.narration}</span> <br />
-                  <span className="badge bg-primary "> pending approval</span>
+                  {pendColor(rec.pending)}
                </div>
                <span className="text-success">{rec.amount}</span>
             </div>
