@@ -8,6 +8,8 @@ export default function My() {
    const menuFunc = (title, icon, link) => {
       return { title, icon, link };
    };
+   const phone = window.sessionStorage.getItem("phone");
+
    const menuArr = [
       menuFunc("Withdraw", <FaCreditCard />, "/withdrawal"),
       menuFunc("recharge record ", <BsPlusCircleFill />, "/recharge-record"),
@@ -31,7 +33,7 @@ export default function My() {
                      width={80}
                   />
                   <div className="wrap">
-                     <span className="fs-4 fw-bold">8122448866</span>{" "}
+                     <span className="fs-4 fw-bold">{phone}</span>{" "}
                      <small className="text-mute">Free</small> <br />
                      <small>extension code</small>{" "}
                      <small>

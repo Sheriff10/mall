@@ -33,19 +33,23 @@ a {
 }
 .kk {
    margin-top: -50px;
-   z-index: 10
+   z-index: 10;
 }
-.hh{
+.hh {
    max-height: 300px;
    z-index: -1;
 }
-.recharge .header, .rbk, .amt-box, .grab-body .card, .my .header {
+.recharge .header,
+.rbk,
+.amt-box,
+.grab-body .card,
+.my .header {
    background: linear-gradient(135deg, #a700ff 0%, #00189a 100%);
 }
 .price-box .boxer:hover {
    background: #a600ff32;
 }
-.border-right{
+.border-right {
    border-right: 1px solid #00000032;
 }
 .menu {
@@ -58,7 +62,6 @@ a {
 }
 .my .men {
    border-bottom: 1px solid #00000032;
-
 }
 .footer {
    z-index: 100;
@@ -69,19 +72,48 @@ a {
    background: #fff;
    padding: 10px 1px;
 }
-.footer a{
+.footer a {
    color: #bbbbbb;
    font-size: 24px;
 }
-.footer a.active{
+.footer a.active {
    border: none;
    color: #6d00be;
 }
 
 body {
-   background: linear-gradient( 190deg, #a600ff0d 0%, #00179a00 100%);
+   background: linear-gradient(190deg, #a600ff0d 0%, #00179a00 100%);
 }
 .loader {
    background: #0000003a;
    backdrop-filter: blur(6px);
+}
+.modal-header {
+   background: url("/public/modal.png") no-repeat;
+   background-size: cover;
+   min-height: 100px;
+}
+.dashboard .modal-content {
+   margin-top: 150px;
+}
+
+
+.slide-up-animation {
+   animation: slideUp 120s linear infinite;
+
+ }
+ 
+ @keyframes slideUp {
+   0% {
+     transform: translateY(0%);
+   }
+   100% {
+     transform: translateY(-100%);
+   }
+ }
+ 
+.board-container{
+   position: relative;
+   overflow: hidden;
+   height: 400px;
 }

@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-   FaCreditCard,
-   FaDollarSign,
-   FaShare,
-} from "react-icons/fa";
-
+import { FaCreditCard, FaDollarSign, FaShare } from "react-icons/fa";
+import rawData from '../random'
+ 
 import Footer from "./footer";
 import { MdOutlineSwipeLeft } from "react-icons/md";
-const partnersImg = [
-   "/amazon.png",
-   "/walmart.png",
-   "/snapdeal.png",
-   "/shopify.png",
-];
-const revArr = [
-   { name: "Emeka Okonkwo", amount: 16234 },
-   { name: "Ngozi Eze", amount: 22345 },
-   { name: "Chinedu Obi", amount: 7890 },
-   { name: "Amina Mohammed", amount: 21567 },
-   { name: "Oluwafemi Adeleke", amount: 13578 },
-];
+
 export default function Dashboard() {
-    const navi = useNavigate()
+   const partnersImg = [
+      "/amazon.png",
+      "/walmart.png",
+      "/snapdeal.png",
+      "/shopify.png",
+   ];
+  
+  
+   const modalRef = useRef(null);
+
+   useEffect(() => {
+      if (modalRef.current) {
+         modalRef.current.click();
+      }
+   }, []);
+
+   const navi = useNavigate();
    return (
       <div className="dashboard">
          <img src="intro.jpeg" alt="mall" className="img-fluid w-100 hh" />
@@ -46,7 +47,6 @@ export default function Dashboard() {
                      <MdOutlineSwipeLeft /> Start Making Money
                   </btn>
                </div>
-
                {/* Btns Menu  */}
                <div className="round-btn d-flex text-purple justify-content-center gap-4 my-4">
                   <div className="wrap text-center">
@@ -71,7 +71,6 @@ export default function Dashboard() {
                      <small> Invite </small>
                   </div>
                </div>
-
                {/* Gain Section */}
                <div className="gain my-5">
                   <div className="head text-center mb-2">
@@ -94,29 +93,72 @@ export default function Dashboard() {
                {/* Agency Revenue Display */}
                <div className="rev my-5">
                   <div className="header mt-5 pb-4">
-                     <span className="fs-4">Agency Revenue Display </span>
+                     <span className="fs-4">Agency Revenue Display</span>
                   </div>
-                  {revArr.map((i, index) => (
-                     <div
-                        className="board bg-white shadow py-2 d-flex gap-4 mb-3"
-                        key={index}
-                     >
-                        <div className="name col-lg-1 col-3 d-flex align-items-center px-3">
-                           {i.name}
-                        </div>
-                        <div className="amount">
-                           <span className="fw-bold">₦{i.amount}</span> <br />
-                           <small>Earnings Today</small>
-                        </div>
+                  <div className="position-relative board-container">
+                     <div className=" slide-up-animation position-absolute w-100">
+                        {rawData.map((i, index) => (
+                           <div
+                              className="board bg-white   shadow py-2 d-flex gap-4 mb-3"
+                              key={index}
+                           >
+                              <div className="name col-lg-1 col-3 d-flex align-items-center px-3">
+                                 {i.name}
+                              </div>
+                              <div className="amount">
+                                 <span className="fw-bold">₦{i.amount}</span>{" "}
+                                 <br />
+                                 <small>Earnings Today</small>
+                              </div>
+                           </div>
+                        ))}
                      </div>
-                  ))}
+                  </div>
                </div>
 
+               {/* Modal section */}
+               <button
+                  type="button"
+                  class="d-none"
+                  data-toggle="modal"
+                  ref={modalRef}
+                  data-target="#myModal"
+               >
+                  Open Modal
+               </button>
+               <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                     <div class="modal-content col-4">
+                        <div class="modal-header">
+                           {/* <h4 class="modal-title">Modal Header</h4> */}
+                        </div>
+                        <div class="modal-body">
+                           <p>
+                              Join my team, 10 minutes a day, earn
+                              100,000-2,000,000₦ a month, this is just the
+                              beginning, every start is a seed of opportunity, a
+                              springboard to wealth and freedom, unlimited
+                              sharing!
+                           </p>
+                        </div>
+                        <div class="modal-footer">
+                           <button
+                              className="btn btn-purple w-100 rounded-pill  text-light mb-2"
+                              // onClick={() => navi(`/payment?amount=${amount}`)}
+                              data-dismiss="modal"
+                              onClick={() => console.log("clicked")}
+                           >
+                              ok
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
                {/* Partner Section */}
                <div className="partners mb-5">
-                <div className="h">
-                    <span className="fw-bold">PARTNERS</span>
-                </div>
+                  <div className="h">
+                     <span className="fw-bold">PARTNERS</span>
+                  </div>
                   <div className="row">
                      {partnersImg.map((i) => (
                         <div
@@ -130,6 +172,7 @@ export default function Dashboard() {
                </div>
             </div>
          </div>
+
          <Footer />
       </div>
    );

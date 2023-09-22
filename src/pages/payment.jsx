@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+import Loader from "./loader";
 
 function Payment() {
    const [bankName, setBankName] = useState("Kuda Name"); // Replace with actual bank name
@@ -11,6 +12,7 @@ function Payment() {
    const [transactionId, setTransactionId] = useState("");
    const [amount, setAmount] = useState(0);
    const [sender_name, setSender_name] = useState("");
+   const [loading, setLoading] = useState(false)
 
    const generateTransactionId = () => {
       // Generate a random transaction ID (You can replace this with your own logic)
@@ -33,6 +35,7 @@ function Payment() {
 
    const submit = async () => {
       if (amount == "") return navi("/recharge");
+      setLoading(true)
 
       try {
          const phone = window.sessionStorage.getItem("phone");
@@ -42,7 +45,9 @@ function Payment() {
          console.log(response);
          alert("Transaction Proccessing");
          navi("/recharge-record");
+         setLoading(false)
       } catch (error) {
+        setLoading(false)
          console.log(error);
       }
    };
@@ -50,6 +55,7 @@ function Payment() {
    return (
       <div className="container p-4">
          <h2>Make a Recharge</h2>
+         <Loader loading={loading} />
 
          <div className="text-wrap alert alert-info mt-4">
             <small className="text-info">
