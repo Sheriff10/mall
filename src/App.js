@@ -19,7 +19,7 @@ import ChangePassword from "./pages/change-password";
 import Payment from "./pages/payment";
 
 function App() {
-   window.api = "http://localhost:5000";
+   window.api = "https://fine-puce-firefly-boot.cyclic.cloud";
    return (
       <div className="App">
          <Routes>
