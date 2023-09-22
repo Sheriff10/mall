@@ -1,7 +1,9 @@
 import React from "react";
 import { FaBell } from "react-icons/fa";
+import { MdQuestionMark } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Footer from "./footer";
+import GrabModal from "./grabModal";
 
 export default function Grab() {
    return (
@@ -25,15 +27,17 @@ export default function Grab() {
             <div className="grab-body shadow rounded">
                {/* CARD section */}
                <div className="card text-light bg-template shadow mt-4 h-200 shadow-none">
-                  <div className="card-body">
-                     <div className="row">
-                        <div className="col-10">
-                           <h1 className="fw-bold">Free</h1>
-                        </div>
-                        <div className="col-2 text-right">
-                           <a data-toggle="modal" data-target="#vip_modal">
-                              <FaBell />
-                           </a>
+                  <div className="card-body ">
+                     <div className="d-flex justify-content-between">
+                        <h1 className="fw-bold p-0 m-0">Free</h1>
+                        <div className="wrap">
+                           <span
+                              className="fs-3 bg-white rounded-circle px-2 py-1 text-purple "
+                              data-toggle="modal"
+                              data-target="#myModal"
+                           >
+                              <MdQuestionMark />
+                           </span>
                         </div>
                      </div>
                      <div className="row">
@@ -57,6 +61,9 @@ export default function Grab() {
                      </div>
                   </div>
                </div>
+
+               {/* Grabs Model */}
+               <GrabModal />
 
                {/* AMG Section */}
                <div className="amt-wrap pt-1 mb-5">

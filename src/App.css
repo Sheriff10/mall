@@ -87,8 +87,9 @@ body {
 .loader {
    background: #0000003a;
    backdrop-filter: blur(6px);
+   z-index: 100;
 }
-.modal-header {
+.dashboard .modal-header {
    background: url("/public/modal.png") no-repeat;
    background-size: cover;
    min-height: 100px;
@@ -97,23 +98,28 @@ body {
    margin-top: 150px;
 }
 
-
 .slide-up-animation {
    animation: slideUp 120s linear infinite;
+}
 
- }
- 
- @keyframes slideUp {
+@keyframes slideUp {
    0% {
-     transform: translateY(0%);
+      transform: translateY(0%);
    }
    100% {
-     transform: translateY(-100%);
+      transform: translateY(-100%);
    }
- }
- 
-.board-container{
+}
+
+.board-container {
    position: relative;
    overflow: hidden;
    height: 400px;
+}
+ .swiper-slide .levels {
+   background: linear-gradient(45deg, #016dbb, #024f87) ;
+   font-size: 100px;
+}
+.grab .modal {
+   margin-top: 150px;
 }

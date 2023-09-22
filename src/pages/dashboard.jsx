@@ -133,7 +133,7 @@ export default function Dashboard() {
                            {/* <h4 class="modal-title">Modal Header</h4> */}
                         </div>
                         <div class="modal-body">
-                           <p>
+                           <p className="bg-danger">
                               Join my team, 10 minutes a day, earn
                               100,000-2,000,000₦ a month, this is just the
                               beginning, every start is a seed of opportunity, a
