@@ -16,6 +16,7 @@ import WithdrawalRecord from "./pages/withdrawal-record";
 import AccountDetails from "./pages/account-details";
 import BindCard from "./pages/bind-card";
 import ChangePassword from "./pages/change-password";
+import Payment from "./pages/payment";
 
 function App() {
    window.api = "http://localhost:5000";
@@ -38,6 +39,7 @@ function App() {
             <Route path="/account-details" element={<AccountDetails />} />
             <Route path="/bind-card" element={<BindCard />} />
             <Route path="/change-password" element={<ChangePassword />} />
+            <Route path="/payment" element={<Payment />} />
          </Routes>
       </div>
    );

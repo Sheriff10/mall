@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaCreditCard, FaPhone } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Recharge() {
    const [amount, setAmount] = useState("");
    const amountArr = [
       1000, 3000, 5000, 10000, 50000, 100000, 300000, 500000, 1000000, 2000000,
    ];
+   const navi = useNavigate()
    return (
       <div className="recharge">
          <div className="header d-flex justify-content-between align-items-center p-3 text-light">
@@ -42,7 +44,7 @@ export default function Recharge() {
             {/* Recharge Box */}
             <div className="r-box mt-5">
                <div className="col-lg-3 p-3 rounded text-light rbk">
-                  <button className="btn btn-purple w-100 rounded  text-light mb-2">
+                  <button className="btn btn-purple w-100 rounded  text-light mb-2" onClick={() => navi(`/payment?amount=${amount}`)}>
                      {" "}
                      <FaCreditCard /> Recharge
                   </button>{" "}
