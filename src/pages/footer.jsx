@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
-    MdHome,
-    MdOutlineChat,
-    MdOutlineSwipeLeft,
-    MdPerson,
-    MdPlaylistAddCheck,
- } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+   MdHome,
+   MdOutlineChat,
+   MdOutlineSwipeLeft,
+   MdPerson,
+   MdPlaylistAddCheck,
+} from "react-icons/md";
+import { NavLink, useNavigate } from "react-router-dom";
 export default function Footer() {
+   const navi = useNavigate();
+
+   useEffect(() => {
+      const phone = window.sessionStorage.getItem("phone");
+      if (!phone) return navi("/login");
+   }, []);
    return (
       <div className="footer position-fixed shadow">
          <div className="no-gutters">
