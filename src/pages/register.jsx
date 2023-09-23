@@ -10,7 +10,7 @@ export default function Register() {
    const [loading, setLoading] = useState(false);
    const [err, setErr] = useState("");
 
-   const navi = useNavigate()
+   const navi = useNavigate();
 
    const handleSubmit = async (e) => {
       e.preventDefault();
@@ -20,7 +20,23 @@ export default function Register() {
          const response = await axios.post(`${window.api}/auth/signup`, data);
          console.log(response);
          setLoading(false);
-         navi("/login")
+         // Function to generate a random code
+         function generateRandomCode(length) {
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            let code = "";
+            for (let i = 0; i < length; i++) {
+               const randomIndex = Math.floor(
+                  Math.random() * characters.length
+               );
+               code += characters.charAt(randomIndex);
+            }
+            return code;
+         }
+         // Generate a random code with a specified length (e.g., 8 characters)
+         const randomCode = generateRandomCode(5);
+         // Store the random code in local storage as "Invite-code"
+         localStorage.setItem("Invite-code", randomCode);
+         navi("/login");
       } catch (error) {
          setLoading(false);
          setErr("Phone number used");
@@ -41,7 +57,10 @@ export default function Register() {
                </small>
             </div>
 
-            <form className="row justify-content-center" onSubmit={handleSubmit}>
+            <form
+               className="row justify-content-center"
+               onSubmit={handleSubmit}
+            >
                <div className="col-lg-4 mx-auto mt-4">
                   <div className="err-wrap">
                      <small className="fw-bold text-danger small text-lowercase">
@@ -61,7 +80,7 @@ export default function Register() {
                         <option value="+234">+234</option>
                      </select>
                      <input
-                        type="text"
+                        type="number"
                         className="rounded-pill form-control border-0  text-center border-none p-2 mb-2"
                         placeholder="Please enter your mobile number"
                         value={phone}

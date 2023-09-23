@@ -34,6 +34,7 @@ export default function My() {
          console.log(error);
       }
    };
+   const inviteCode = localStorage.getItem('Invite-code')
    return (
       <div className="my">
          <div className="container">
@@ -52,7 +53,7 @@ export default function My() {
                      <small>extension code</small>{" "}
                      <small>
                         {" "}
-                        <b> LYCQK8</b>
+                        <b> {inviteCode}</b>
                      </small>
                   </div>
                </div>

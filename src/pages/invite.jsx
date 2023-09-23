@@ -4,6 +4,7 @@ import { MdLink, MdMonetizationOn } from "react-icons/md";
 import Footer from "./footer";
 
 export default function Invite() {
+   const inviteCode = localStorage.getItem('Invite-code')
    return (
       <div className="support recharge">
          <div className="header text-center p-5 text-light">
@@ -26,7 +27,7 @@ export default function Invite() {
                      </p>
                      <p className="text-black ">
                         extension code:{" "}
-                        <span className="text-purple ">LYHS8</span>
+                        <span className="text-purple ">{inviteCode}</span>
                      </p>
                      <button className="btn btn-purple btn-sm rounded">
                         {" "}

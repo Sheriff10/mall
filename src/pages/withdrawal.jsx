@@ -5,6 +5,7 @@ export default function Withdrawal() {
 
    const phone = window.sessionStorage.getItem("phone");
    const balance = window.sessionStorage.getItem("balance");
+   const username = window.sessionStorage.getItem("username");
 
    function maskNumber(number) {
       const numberStr = String(number);
@@ -38,7 +39,7 @@ export default function Withdrawal() {
                         <dt className="col-5 text-secondary small">
                            account name
                         </dt>
-                        <dd className="col-7 small">sheriff</dd>
+                        <dd className="col-7 small">{username}</dd>
                         <dt className="col-5 text-secondary small">
                            Mobile number
                         </dt>
