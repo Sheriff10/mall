@@ -16,14 +16,64 @@ const { uniqueNamesGenerator, Config, adjectives, colors, names } = require('uni
 
 // Generate additional data
 for (let i = 5; i < 150; i++) {
-  const customConfig = {
-    dictionaries: [names, names],
-    separator: ' ',
-    length: 2,
-  };
+  const nigerianFirstNames = [
+    "Adebayo",
+    "Adesua",
+    "Chinweike",
+    "Chisom",
+    "Chukwudi",
+    "Emeka",
+    "Ezinne",
+    "Folake",
+    "Funmilayo",
+    "Ifeoma",
+    "Ikechukwu",
+    "Kehinde",
+    "Mofeoluwa",
+    "Ngozi",
+    "Nneka",
+    "Nwabueze",
+    "Obinna",
+    "Ogechi",
+    "Olufemi",
+    "Olumide",
+    "Onyinye",
+    "Oreoluwa",
+    "Osarugue",
+    "Ozioma",
+    "Patience",
+    "Precious",
+    "Uchenna",
+    "Uzoma",
+    "Yakubu",
+    "Yetunde",
+    "Zainab",
+    "Abimbola",
+    "Chibuzo",
+    "Chinelo",
+    "Chinyere",
+    "Emmanuel",
+    "Folasade",
+    "Jumoke",
+    "Kamaldeen",
+    "Muyiwa",
+    "Nneoma",
+    "Oluwaseun",
+    "Oluwatoyin",
+    "Osahon",
+    "Oyindamola",
+    "Ugonna",
+    "Uzochukwu",
+    "Yewande"
+  ];
+
+  const randomIndex = Math.floor(Math.random() * nigerianFirstNames.length);
+  const randomIndex2 = Math.floor(Math.random() * nigerianFirstNames.length);
+
+const fname = nigerianFirstNames[randomIndex]
+const lname = nigerianFirstNames[randomIndex2]
   
-  const shortName = uniqueNamesGenerator(customConfig);
-  const randomName = shortName +  " "; // You can replace this with a random name generator
+  const randomName = fname +  " " + lname; // You can replace this with a random name generator
   const randomAmount = (Math.floor(Math.random() * 271) + 30) * 1000; // Random amount between 30,000 and 300,000
   const formattedAmount = randomAmount.toLocaleString(); // Add commas to the amount
   rawData.push({ name: randomName, amount: formattedAmount });
