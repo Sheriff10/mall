@@ -18,7 +18,7 @@ export default function Grab() {
                   <small>My Balance</small>
                </div>
                <div className="fund-wrap">
-                  <Link to={"/deposit"}>
+                  <Link to={"/recharge"}>
                      <span className="fs-4 btn-purple text-white px-4 py-3  rounded-circle">
                         +
                      </span>
