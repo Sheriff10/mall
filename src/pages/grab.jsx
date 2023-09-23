@@ -92,7 +92,14 @@ export default function Grab() {
                   </div>
                   <hr className="border" />
                   <div className="btn-wrap p-3">
-                     <button className="w-100 btn btn-purple text-light text-uppercase rounded-pill">
+                     <button
+                        className="w-100 btn btn-purple text-light text-uppercase rounded-pill"
+                        onClick={() =>
+                           alert(
+                              "The number of member level transactions is insufficient. Please contact the customer personnel for handling"
+                           )
+                        }
+                     >
                         {" "}
                         Start Grabbing Orders
                      </button>

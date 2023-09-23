@@ -19,15 +19,19 @@ export default function Invite() {
                      </button>{" "}
                      <br />
                      <p>
-                        Her gün yarım saatte bir ekibime katılın. Ayda 100.000
-                        kazanmak sadece başlangıç! Her davet bir fırsat tohumu,
-                        zenginlik ve özgürlük için bir sıçrama tahtasıdır! Gelin
-                        ve arkadaşlarınızla birlikte zengin olun!
+                        Join my team for 30 minutes every day. Earning 100,000 a
+                        month is just the beginning! Every invitation is a seed
+                        of opportunity, a springboard for wealth and freedom!
+                        Come and get rich with your friends!
                      </p>
-
-                     <p className="text-black ">extension code: <span className="text-purple ">LYHS8</span></p>
-
-                     <button className="btn btn-purple btn-sm rounded"> <MdLink /> COPY INVITATION LINK</button>
+                     <p className="text-black ">
+                        extension code:{" "}
+                        <span className="text-purple ">LYHS8</span>
+                     </p>
+                     <button className="btn btn-purple btn-sm rounded">
+                        {" "}
+                        <MdLink /> COPY INVITATION LINK
+                     </button>
                   </div>
                </div>
             </div>

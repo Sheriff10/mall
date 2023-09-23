@@ -89,8 +89,9 @@ export default function Withdrawal() {
             <button
                type="button"
                className="btn btn-purple rounded-pill w-100 text-light fs-5 mt-4"
+               onClick={() => alert("Please withraw after completing the remaing task")}
             >
-               Withdrawal
+               Withdraw
             </button>
             <div className="text-mute small mt-3">
                <p>

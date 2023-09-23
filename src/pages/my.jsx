@@ -29,6 +29,7 @@ export default function My() {
       try {
          const response = await axios.get(`${window.api}/get-balance/${phone}`);
          window.sessionStorage.setItem("balance", response.data.balance);
+         window.sessionStorage.setItem("username", response.data.username);
       } catch (error) {
          console.log(error);
       }
