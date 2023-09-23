@@ -163,7 +163,7 @@ function Payment() {
 
          {/* Recipient Name Input */}
          <Form.Group>
-            <Form.Label>Recipient Name:</Form.Label>
+            <Form.Label>Sender Name:</Form.Label>
             <Form.Control
                type="text"
                placeholder="Enter recipient name"
