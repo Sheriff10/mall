@@ -175,8 +175,11 @@ function Payment() {
          {transactionId == "" ? (
             <div className="text-wrap alert alert-info mt-4">
                <small className="text-info">
-                  Please generate a narration id and use it as the transaction
-                  narration{" "}
+                  Step 1. Click "Generate Transaction ID ". <br /> Step 2. Open your
+                  Bank app and make a transfer to the Bank Account details above <br />
+                  Step 3. Use your transaction ID as Narration/remarks and
+                  approve transaction Step 4. Input the Sender's account name
+                  then Submit
                </small>
             </div>
          ) : (
