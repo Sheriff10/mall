@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaCreditCard, FaDollarSign, FaShare } from "react-icons/fa";
 import rawData from "../random";
@@ -8,6 +8,7 @@ import { MdOutlineSwipeLeft } from "react-icons/md";
 import axios from "axios";
 
 export default function Dashboard() {
+   const [bal, setBal] = useState('')
    useEffect(() => {
       getBalance();
    }, []);
@@ -26,6 +27,7 @@ export default function Dashboard() {
          const response = await axios.get(`${window.api}/get-balance/${phone}`);
          window.sessionStorage.setItem("balance", response.data.balance);
          window.sessionStorage.setItem("username", response.data.username);
+         setBal(response.data.balance)
       } catch (error) {
          console.log(error);
       }
