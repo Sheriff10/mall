@@ -147,7 +147,7 @@ function Payment() {
          {transactionId && (
             <div className="d-flex justify-content-between align-items-center mb-3">
                <Form.Group className="flex-grow-1 mr-2 mb-0">
-                  <Form.Label>Narraion:</Form.Label>
+                  <Form.Label>Narration:</Form.Label>
                   <Form.Control type="text" value={transactionId} readOnly />
                </Form.Group>
                <Button
