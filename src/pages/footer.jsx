@@ -12,7 +12,7 @@ export default function Footer() {
 
    useEffect(() => {
       const phone = window.sessionStorage.getItem("phone");
-      if (!phone) return navi("/login");
+      if (!phone) return window.location.href='/login'
    }, []);
    return (
       <div className="footer position-fixed shadow">

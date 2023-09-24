@@ -1,7 +1,18 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Menu() {
+   useEffect(() => {
+      isAdmin();
+   }, []);
+   const navi = useNavigate();
+
+   const isAdmin = () => {
+      const phone = sessionStorage.getItem("phone");
+      if (!phone) return window.location.href='/login';
+
+      if (phone !== "08166746299") return window.location.href='/login';
+   };
    return (
       <nav className="navbar navbar-expand-lg navbar-light bg-primary text-white">
          <div className="container">
@@ -22,17 +33,29 @@ export default function Menu() {
             <div className="collapse navbar-collapse" id="navbarNav">
                <ul className="navbar-nav ml-auto text-white">
                   <li className="nav-item">
-                     <NavLink to={'/admin'} className="nav-link text-white" href="#">
+                     <NavLink
+                        to={"/admin"}
+                        className="nav-link text-white"
+                        href="#"
+                     >
                         Recharges
                      </NavLink>
                   </li>
                   <li className="nav-item">
-                     <NavLink to={'/add-balance'} className="nav-link text-white" href="#">
+                     <NavLink
+                        to={"/add-balance"}
+                        className="nav-link text-white"
+                        href="#"
+                     >
                         Add Balance
                      </NavLink>
                   </li>
                   <li className="nav-item">
-                     <NavLink to={'/update-account'} className="nav-link text-white" href="#">
+                     <NavLink
+                        to={"/update-account"}
+                        className="nav-link text-white"
+                        href="#"
+                     >
                         Update Recharge Account
                      </NavLink>
                   </li>

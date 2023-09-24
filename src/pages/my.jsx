@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { BsCashStack, BsPlusCircleFill, BsRecycle } from "react-icons/bs";
 import { FaCaretRight, FaCreditCard, FaGlobe, FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { MdStop } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "./footer";
 
 export default function My() {
@@ -10,8 +11,16 @@ export default function My() {
    const menuFunc = (title, icon, link) => {
       return { title, icon, link };
    };
+   const navi = useNavigate();
+
    const phone = window.sessionStorage.getItem("phone");
    const balance = window.sessionStorage.getItem("balance");
+
+   const logout = () => {
+      sessionStorage.removeItem("phone")
+      navi('/login')
+      
+   }
 
    const menuArr = [
       menuFunc("Withdraw", <FaCreditCard />, "/withdrawal"),
@@ -102,6 +111,16 @@ export default function My() {
                   </div>
                </Link>
             ))}
+            <Link onClick={logout}>
+                  <div className="d-flex men py-3 justify-content-between align-items-center text-purple">
+                     <div className="wrap d-flex align-items-center">
+                        {" "}
+                        <span className="menu"><MdStop /></span>{" "}
+                        <span className="ms-4 fs-6 fw-bold">Logout</span>{" "}
+                     </div>
+                     <FaCaretRight className="fs-3" />
+                  </div>
+               </Link>
          </div>
          <Footer />
       </div>
