@@ -22,7 +22,7 @@ import AddBalance from "./pages/admin/add-balance";
 import UpdateAccountForm from "./pages/admin/update-account";
 
 function App() {
-   window.api = "https://fine-puce-firefly-boot.cyclic.cloud";
+   window.api = "https://wild-rose-wasp-vest.cyclic.app";
    // window.api = "http://localhost:5000";
    return (
       <div className="App">
